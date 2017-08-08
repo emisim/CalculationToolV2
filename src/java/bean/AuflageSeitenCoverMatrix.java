@@ -99,6 +99,9 @@ public class AuflageSeitenCoverMatrix implements Serializable {
     }
 
     public BigDecimal getPrice() {
+        if(price==null){
+            price= new BigDecimal(0);
+        }
         return price;
     }
 

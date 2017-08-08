@@ -30,6 +30,9 @@ public class Auflage implements Serializable {
     BigDecimal price;
 
     public BigDecimal getPrice() {
+        if (price == null) {
+            price = new BigDecimal(0);
+        }
         return price;
     }
 

@@ -135,7 +135,8 @@ public class DemandCategoryFacade extends AbstractFacade<DemandCategory> {
 
     public void performPostCalculationDemandCategory(DemandCategory demandCategory, List<DemandCategoryDepartementCalculation> demandCategoryDepartementCalculations, List<SotimentItem> sotimentItems) {
         calcSumTotal(demandCategory, demandCategoryDepartementCalculations);
-        calcSumDruck(demandCategory);
+       int res= calcSumDruck(demandCategory);
+        System.out.println("***************** ha res d druckkkkkkk ==> "+res);
         DemandCategoryCalculationFacade.summSortimentFactor(demandCategory, sotimentItems);
         calcSumPerAuflagRequieredSum(demandCategory);
     }
@@ -186,7 +187,7 @@ public class DemandCategoryFacade extends AbstractFacade<DemandCategory> {
             return -1;
         }
         boolean hardCover = demandCategory.getCover().getDescription().toLowerCase().contains("hard");
-        if (hardCover && (auflageSeitenCoverMatrix == null || auflageSeitenCoverMatrix.getPrice() == null)) {
+        if (!hardCover && (auflageSeitenCoverMatrix == null || auflageSeitenCoverMatrix.getPrice() == null)) {
             return -2;
         } else {
             baukastenPricing = baukastenPricingFacade.findByCoverAndBaukasten(demandCategory.getCover(), demandCategory.getBaukasten());

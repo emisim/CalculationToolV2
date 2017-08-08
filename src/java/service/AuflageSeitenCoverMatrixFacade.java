@@ -40,6 +40,7 @@ public class AuflageSeitenCoverMatrixFacade extends AbstractFacade<AuflageSeiten
             query += SearchUtil.addConstraint("item", "formatAuswaehlen.id", "=", formatAuswaehlen.getId());
             query += SearchUtil.addConstraint("item", "farbigkeit.id", "=", farbigkeit.getId());
             query += SearchUtil.addConstraint("item", "baukasten.id", "=", baukasten.getId());
+            System.out.println("ùùùùùùù ha query ==> "+query);
             return getUniqueResult(query);
         }
     }
