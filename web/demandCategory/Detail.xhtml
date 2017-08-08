@@ -42,13 +42,13 @@
                                     <p:column headerText="Description" width="80">
                                         <h:outputText value="#{item.descrDepCriteriaItem}" />
                                     </p:column>
-                                    <p:column headerText="Global Description" width="120">
+                                    <p:column headerText="Global Description" width="110">
                                         <h:outputText value="#{item.descrDepCriteriaItemGlobal}" />
                                     </p:column>
                                     <p:column headerText="Unit Price" width="30" >
                                         <h:outputText value="#{item.priceUpdate}" />
                                     </p:column>
-                                    <p:column headerText="Global price" width="30" >
+                                    <p:column headerText="Global price" width="40" >
                                         <h:outputText value="#{item.priceGlobalUpdate}" />
                                     </p:column>
                                     <p:summaryRow>
@@ -62,7 +62,7 @@
                                         </p:column>
                                     </p:summaryRow>
                                     <f:facet name="footer">
-                                        <h:outputText value="Print Price : #{detailDepartement.value.size()>0?detailDepartement.value.get(0).summDruck:'0.00'} €" /><br></br>
+<!--                                        <h:outputText value="Print Price : {detailDepartement.value.size()>0?detailDepartement.value.get(0).summDruck:'0.00'} €" /><br></br>-->
                                         <h:outputText value="Total Price: #{detailDepartement.value.size()>0?detailDepartement.value.get(0).summDepartementGlobal:'0.00'} €" style="font-size:18px;text-align: left;" />
                                     </f:facet>
                                 </p:dataTable>
