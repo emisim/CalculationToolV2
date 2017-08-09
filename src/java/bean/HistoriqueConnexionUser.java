@@ -14,12 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author 
  */
 @Entity
+@XmlRootElement
 public class HistoriqueConnexionUser implements Serializable {
 
     private static final long serialVersionUID = 1L;

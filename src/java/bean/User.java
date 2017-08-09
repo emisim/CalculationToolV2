@@ -14,12 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Pattern;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

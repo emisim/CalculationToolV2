@@ -17,12 +17,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class Sortiment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,6 +56,8 @@ public class Sortiment implements Serializable {
         this.id = id;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<SotimentItem> getSotimentItems() {
         return sotimentItems;
     }

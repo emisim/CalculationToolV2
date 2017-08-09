@@ -12,12 +12,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class Departement implements Serializable {
 
     @OneToMany(mappedBy = "departement")
@@ -30,6 +34,8 @@ public class Departement implements Serializable {
     private Long id;
     private String name;
 
+    @XmlTransient
+    @JsonIgnore
     public List<User> getUsers() {
         return users;
     }
@@ -38,6 +44,8 @@ public class Departement implements Serializable {
         this.users = users;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<DepartementCriteria> getDepartementCriterias() {
         return departementCriterias;
     }

@@ -13,12 +13,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,6 +37,8 @@ public class Category implements Serializable {
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 
+    @XmlTransient
+    @JsonIgnore
     public List<DemandCategory> getDemandCategorys() {
         if (demandCategorys == null) {
             demandCategorys = new ArrayList<>();
@@ -52,6 +58,8 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<Product> getProducts() {
         if (products == null) {
             products = new ArrayList<>();

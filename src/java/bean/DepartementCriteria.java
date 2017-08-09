@@ -13,12 +13,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class DepartementCriteria implements Serializable {
 
     @OneToMany(mappedBy = "departementCriteria")
@@ -31,6 +35,8 @@ public class DepartementCriteria implements Serializable {
     @ManyToOne
     private Departement departement;
 
+    @XmlTransient
+    @JsonIgnore
     public List<DepartementCriteriaItem> getDepartementCriteriaItems() {
         return departementCriteriaItems;
     }

@@ -18,12 +18,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class DemandCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -401,6 +405,8 @@ public class DemandCategory implements Serializable {
         this.dateSystem = dateSystem;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<DemandCategoryDepartementCalculation> getDemandCategoryDepartementCalculations() {
         return demandCategoryDepartementCalculations;
     }
@@ -460,6 +466,8 @@ public class DemandCategory implements Serializable {
         this.product = product;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<SotimentItem> getSotimentItems() {
         return sotimentItems;
     }

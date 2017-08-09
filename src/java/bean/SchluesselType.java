@@ -13,12 +13,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class SchluesselType implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,6 +34,8 @@ public class SchluesselType implements Serializable {
     @OneToMany(mappedBy = "schluesselType")
     private List<Schluessel> schluessels;
 
+    @XmlTransient
+    @JsonIgnore
     public List<Schluessel> getSchluessels() {
         if (schluessels == null) {
             schluessels = new ArrayList<>();

@@ -13,12 +13,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author t3500
  */
 @Entity
+@XmlRootElement
 public class LayoutPricing implements Serializable {
 
     private static final long serialVersionUID = 1L;

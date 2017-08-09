@@ -14,12 +14,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class Configuration implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,6 +35,8 @@ public class Configuration implements Serializable {
     @OneToMany(mappedBy = "configuration")
     private List<ConfigurationItem> configurationItems;
 
+    @XmlTransient
+    @JsonIgnore
     public List<ConfigurationItem> getConfigurationItems() {
         return configurationItems;
     }

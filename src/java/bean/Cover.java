@@ -14,12 +14,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author
  */
 @Entity
+@XmlRootElement
 public class Cover implements Serializable {
 
     @OneToMany(mappedBy = "cover")
